@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+.main {position: relative; margin: 0px 0px 0px 100px}
+.lab {position: relative; margin: 0px 0px 0px 130px}
+
+</style>
+</head>
+<body style="font-family:Arial;color:black;background-color:#E9C9F6;" >
+
+<div style="background-color:#d5baf9;padding:10px ;">
+  <h1>Tamper Playground</h1>
+</div>
+
+  <div class="main">
+    <h2 >Example1</h2>
+    <p >This example is basic SQLi doesn't need Tamper file I just want you to understand example because all the other examples are based on this one.</p>
+     <div class="lab">
+ 	<h3>Here we go</h3>
+    <form method="POST" th:action="@{/__${lab}__ }">
+      <label for="username">Push button to get user info.</label>
+  <input type="hidden" id="username" name="username" value="SaadetElif"><br><br>
+  <input type="submit" value="Welcome!">
+</form> 
+                             <h4 class="box-title" th:text="@{Merhaba __${isim}__ hoş geldin ! }"></h4>
+                                <p class="sub-title">Hesabına ait bilgiler aşağıda bulunmaktadır:</p>
+                                <ul class="lis">
+                                    <li th:text="@{Email Adresi: __${mail}__ }"></li>
+                                    <li th:text="@{Plain password: __${password}__ }"></li>
+                                    <li th:text="@{Sehir: __${sehir}__ }"></li>
+                                    <li th:text="@{Ilce: __${ilce}__ }"></li>
+
+</div>
+  </div>
+
+ 
+
+</body>
+</html>
