@@ -14,20 +14,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ResponseStatusException;
 
+
 @Controller
-public class LabFour {
+public class LabFive {
 	private String isim;
 	private String email;
 	private String parola;
 	private String sehir;
 	private String ilce;
-
-	@RequestMapping("/lab4")
-	public String lab4(HttpServletRequest request, Model model) {// İstek yapıyor istek bodysinde çalışanların 															// listesi var.
+	private String clean;
+	@RequestMapping("/lab5")
+	public String lab5(HttpServletRequest request, Model model) {// İstek yapıyor istek bodysinde çalışanların 															// listesi var.
 		String username = request.getParameter("username");
-		
-		if(username.contains(" ")) {
-			throw new ResponseStatusException(HttpStatus.FORBIDDEN); 
+		System.out.println(username);
+		if(username.toLowerCase().contains("select"))
+		{
+	
+			clean=username.toLowerCase().replace("select", "");
+		}else {
+			clean=username;
 		}
 		
 		try {
@@ -37,7 +42,7 @@ public class LabFour {
 					"admin");
 			Statement stmt = con.createStatement();
 			boolean hasMoreResults = stmt.execute(
-					"SELECT  US.email AS \"mail\", US.password AS \"parola\", US.username AS \"Username\", US.city AS \"sehir\", US.district AS \"ilce\" FROM accounts US where username='"+ username + "';");
+					"SELECT  US.email AS \"mail\", US.password AS \"parola\", US.username AS \"Username\", US.city AS \"sehir\", US.district AS \"ilce\" FROM accounts US where username='"+ clean + "';");
 //		while (hasMoreResults) {
 			ResultSet rs = stmt.getResultSet();
 			while (rs.next()) {
@@ -46,7 +51,6 @@ public class LabFour {
 				parola = rs.getString("parola");
 				sehir=rs.getString("sehir");
 				ilce = rs.getString("ilce");
-				System.out.println(isim);
 			}
 			con.close();
 		} catch (Exception e) {
@@ -57,7 +61,9 @@ public class LabFour {
 		model.addAttribute("password", parola);
 		model.addAttribute("sehir", sehir);
 		model.addAttribute("ilce", ilce);
-		model.addAttribute("lab", "lab4");
+		model.addAttribute("lab", "lab5");
 		return "getInfo";
 	}
+
+
 }

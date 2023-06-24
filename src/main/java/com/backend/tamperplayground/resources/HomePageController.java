@@ -31,7 +31,11 @@ public class HomePageController {
 		
 		return "lab4";
 	}
-
+	@RequestMapping("/5")
+	public String lab5(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "lab5";
+	}
 
 
 
