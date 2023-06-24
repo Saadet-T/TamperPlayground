@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class LabOne {
 	private String isim;
 	private String email;
@@ -50,6 +51,7 @@ public class LabOne {
 		model.addAttribute("password", parola);
 		model.addAttribute("sehir", sehir);
 		model.addAttribute("ilce", ilce);
+		model.addAttribute("lab", "lab1");
 		return "getInfo";
 	}
 }

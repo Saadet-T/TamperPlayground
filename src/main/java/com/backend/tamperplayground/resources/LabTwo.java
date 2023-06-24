@@ -8,9 +8,11 @@ import java.util.Base64;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class LabTwo {
 	private String isim;
 	private String email;
@@ -52,6 +54,7 @@ public class LabTwo {
 		model.addAttribute("password", parola);
 		model.addAttribute("sehir", sehir);
 		model.addAttribute("ilce", ilce);
+		model.addAttribute("lab", "lab2");
 		return "getInfo";
 	}
 

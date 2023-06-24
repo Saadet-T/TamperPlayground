@@ -19,12 +19,17 @@ public class HomePageController {
 	@RequestMapping("/2")
 	public String lab2(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "lab2";
+		return "getinfo";
 	}
 	@RequestMapping("/3")
 	public String lab3(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "lab3";
+		return "getinfo";
+	}
+	@RequestMapping("/4")
+	public String lab4(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "lab4";
 	}
 
 
