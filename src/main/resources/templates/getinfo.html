@@ -22,7 +22,7 @@
  	<h3>Here we go</h3>
     <form method="POST" th:action="@{/__${lab}__ }">
       <label for="username">Push button to get user info.</label>
-  <input type="hidden" id="username" name="username" value="SaadetElif"><br><br>
+  <input type="hidden" id="username" name="username" th:value="@{__${parameter}__}"><br><br>
   <input type="submit" value="Welcome!">
 </form> 
                              <h4 class="box-title" th:text="@{Merhaba __${isim}__ hoş geldin ! }"></h4>

@@ -43,7 +43,7 @@ public class LabFive {
 			Statement stmt = con.createStatement();
 			boolean hasMoreResults = stmt.execute(
 					"SELECT  US.email AS \"mail\", US.password AS \"parola\", US.username AS \"Username\", US.city AS \"sehir\", US.district AS \"ilce\" FROM accounts US where username='"+ clean + "';");
-//		while (hasMoreResults) {
+
 			ResultSet rs = stmt.getResultSet();
 			while (rs.next()) {
 				email = rs.getString("mail");
