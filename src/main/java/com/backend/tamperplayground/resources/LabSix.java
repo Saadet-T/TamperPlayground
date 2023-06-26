@@ -43,7 +43,7 @@ public class LabSix {
 		if(breakingIndex != -1) {
 			String otp = takmaAd.substring(breakingIndex+breakingPoint.length());
 			System.out.println(otp);
-		    	  if(homepageCode==otp)
+		    	  if(homepageCode.equals(otp))
 		    	  {
 		    		 userName = takmaAd.substring(0,breakingIndex); //Bu if'in içine bir türlü sokamadım programı
 		    		 System.out.println(takmaAd);
